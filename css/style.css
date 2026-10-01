@@ -4381,112 +4381,18 @@ section {
     }
 }
 
-/* =========================================
-   PROJECT IMAGE LAYOUT
-   ========================================= */
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Move project screenshots to the top */
-.project-card .project-images {
-    order: -10;
+.project-images {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    margin: 0 0 28px 0;
+    margin-bottom: 28px;
 }
 
-/* Screenshot styling */
-.project-card .project-images img {
-    display: block;
+.project-images img {
     width: 100%;
     height: 210px;
     object-fit: cover;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: #111827;
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-/* Hover effect */
-.project-card .project-images img:hover {
-    transform: translateY(-5px);
-    border-color: rgba(96, 165, 250, 0.45);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* Keep project number/type below the image */
-.project-card .project-top {
-    order: 0;
-}
-
-/* Project icon */
-.project-card .project-icon {
-    order: 1;
-}
-
-/* Project title */
-.project-card h3 {
-    order: 2;
-}
-
-/* Subtitle */
-.project-card .project-subtitle {
-    order: 3;
-}
-
-/* Description */
-.project-card .project-description {
-    order: 4;
-}
-
-/* Result section */
-.project-card .project-result {
-    order: 5;
-}
-
-/* Technologies */
-.project-card .project-tech {
-    order: 6;
-}
-
-/* GitHub / Live links */
-.project-card .project-link {
-    order: 7;
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .project-card .project-images {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .project-card .project-images img {
-        height: 220px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .project-card .project-images {
-        grid-template-columns: 1fr;
-        margin-bottom: 22px;
-    }
-
-    .project-card .project-images img {
-        height: 200px;
-        border-radius: 14px;
-    }
+    display: block;
 }
