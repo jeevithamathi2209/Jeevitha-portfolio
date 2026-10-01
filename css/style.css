@@ -4381,184 +4381,112 @@ section {
     }
 }
 
-/* ================= PROJECT CARD POLISH ================= */
-
-.projects-grid {
-    align-items: stretch;
-}
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-}
+/* =========================================
+   PROJECT IMAGE LAYOUT
+   ========================================= */
 
 .project-card {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
 }
 
-.project-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-}
-
-.project-type {
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    text-align: right;
-}
-
-.project-icon {
-    margin: 8px 0 18px;
-}
-
-.project-card h3 {
-    min-height: 36px;
-}
-
-.project-subtitle {
-    min-height: 42px;
-}
-
-.project-description {
-    min-height: 82px;
-}
-
-/* Project buttons */
-
-.project-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+/* Move project screenshots to the top */
+.project-card .project-images {
+    order: -10;
     width: 100%;
-    box-sizing: border-box;
-
-    padding: 11px 14px;
-    margin-top: 9px;
-
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-
-    background: rgba(255,255,255,0.035);
-
-    text-decoration: none;
-}
-
-.project-link:hover {
-    background: rgba(93,169,255,0.08);
-    border-color: rgba(93,169,255,0.28);
-    transform: translateX(4px);
-}
-
-.project-link span {
-    transition: var(--transition);
-}
-
-.project-link:hover span {
-    transform: translate(3px, -3px);
-}
-
-/* Keep technology section consistent */
-
-.project-tech {
-    min-height: 58px;
-    align-content: flex-start;
-}
-
-
-/* ================= PROJECT RESPONSIVE ================= */
-
-@media (min-width: 1100px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 22px;
-    }
-
-    .project-card {
-        padding: 28px;
-        min-height: 540px;
-    }
-}
-
-@media (min-width: 761px) and (max-width: 1099px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 760px) {
-    .project-card {
-        padding: 28px;
-    }
-
-    .project-description {
-        min-height: auto;
-    }
-
-    .project-subtitle {
-        min-height: auto;
-    }
-}
-
-/* ================= PROJECT PREVIEW ================= */
-
-.project-preview {
-    width: 100%;
-    height: 170px;
-    margin-bottom: 24px;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.10);
-    background: rgba(255,255,255,0.03);
-}
-
-.project-preview img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-preview img {
-    transform: scale(1.04);
-}
-
-.project-images {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 20px 0;
+    gap: 14px;
+    margin: 0 0 28px 0;
 }
 
-.project-images img {
+/* Screenshot styling */
+.project-card .project-images img {
+    display: block;
     width: 100%;
-    height: 180px;
+    height: 210px;
     object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: #111827;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.project-images img:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.35);
+/* Hover effect */
+.project-card .project-images img:hover {
+    transform: translateY(-5px);
+    border-color: rgba(96, 165, 250, 0.45);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Keep project number/type below the image */
+.project-card .project-top {
+    order: 0;
+}
+
+/* Project icon */
+.project-card .project-icon {
+    order: 1;
+}
+
+/* Project title */
+.project-card h3 {
+    order: 2;
+}
+
+/* Subtitle */
+.project-card .project-subtitle {
+    order: 3;
+}
+
+/* Description */
+.project-card .project-description {
+    order: 4;
+}
+
+/* Result section */
+.project-card .project-result {
+    order: 5;
+}
+
+/* Technologies */
+.project-card .project-tech {
+    order: 6;
+}
+
+/* GitHub / Live links */
+.project-card .project-link {
+    order: 7;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .project-card .project-images {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .project-card .project-images img {
+        height: 220px;
+    }
 }
 
 @media (max-width: 600px) {
-    .project-images {
+
+    .project-card .project-images {
         grid-template-columns: 1fr;
+        margin-bottom: 22px;
     }
 
-    .project-images img {
+    .project-card .project-images img {
         height: 200px;
+        border-radius: 14px;
     }
-
 }
-
