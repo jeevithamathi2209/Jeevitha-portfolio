@@ -4386,6 +4386,11 @@ section {
 .projects-grid {
     align-items: stretch;
 }
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
 
 .project-card {
     display: flex;
@@ -4554,10 +4559,6 @@ section {
     .project-images img {
         height: 200px;
     }
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-}
+
 }
 
